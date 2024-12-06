@@ -1,0 +1,10 @@
+﻿{
+	"Name": "CookingShowdownCode",
+	"Author": "smallfire",
+	"Version": "1.0.0",
+	"Description": "CookingShowdownCode",
+	"UniqueID": "smallfire.CookingShowdownCode",
+	"EntryDll": "CookingShowdownCode.dll",
+	"MinimumApiVersion": "4.0.0",
+	"UpdateKeys": []
+}

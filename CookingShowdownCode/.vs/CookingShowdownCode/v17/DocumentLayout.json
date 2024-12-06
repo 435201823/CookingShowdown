@@ -1,0 +1,170 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4069CC9E-BE40-47E1-83A2-DDA5118327A3}|CookingShowdownCode.csproj|d:\\sourcecode\\sv\\cooking showdown\\cookingshowdowncode\\event\\eventbuilder\\competitionopenspeecheventbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4069CC9E-BE40-47E1-83A2-DDA5118327A3}|CookingShowdownCode.csproj|solutionrelative:event\\eventbuilder\\competitionopenspeecheventbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4069CC9E-BE40-47E1-83A2-DDA5118327A3}|CookingShowdownCode.csproj|d:\\sourcecode\\sv\\cooking showdown\\cookingshowdowncode\\event\\eventmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4069CC9E-BE40-47E1-83A2-DDA5118327A3}|CookingShowdownCode.csproj|solutionrelative:event\\eventmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4069CC9E-BE40-47E1-83A2-DDA5118327A3}|CookingShowdownCode.csproj|d:\\sourcecode\\sv\\cooking showdown\\cookingshowdowncode\\modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4069CC9E-BE40-47E1-83A2-DDA5118327A3}|CookingShowdownCode.csproj|solutionrelative:modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4069CC9E-BE40-47E1-83A2-DDA5118327A3}|CookingShowdownCode.csproj|d:\\sourcecode\\sv\\cooking showdown\\cookingshowdowncode\\event\\gameeventscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4069CC9E-BE40-47E1-83A2-DDA5118327A3}|CookingShowdownCode.csproj|solutionrelative:event\\gameeventscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4069CC9E-BE40-47E1-83A2-DDA5118327A3}|CookingShowdownCode.csproj|d:\\sourcecode\\sv\\cooking showdown\\cookingshowdowncode\\cookingshowdowncode.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{4069CC9E-BE40-47E1-83A2-DDA5118327A3}|CookingShowdownCode.csproj|solutionrelative:cookingshowdowncode.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4069CC9E-BE40-47E1-83A2-DDA5118327A3}|CookingShowdownCode.csproj|d:\\sourcecode\\sv\\cooking showdown\\cookingshowdowncode\\craftingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4069CC9E-BE40-47E1-83A2-DDA5118327A3}|CookingShowdownCode.csproj|solutionrelative:craftingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4069CC9E-BE40-47E1-83A2-DDA5118327A3}|CookingShowdownCode.csproj|d:\\sourcecode\\sv\\cooking showdown\\cookingshowdowncode\\cookgamelocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4069CC9E-BE40-47E1-83A2-DDA5118327A3}|CookingShowdownCode.csproj|solutionrelative:cookgamelocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\u5440\u54C8\u54C8\\.nuget\\packages\\pathoschild.stardew.modbuildconfig\\4.3.0\\build\\Pathoschild.Stardew.ModBuildConfig.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4069CC9E-BE40-47E1-83A2-DDA5118327A3}|CookingShowdownCode.csproj|d:\\sourcecode\\sv\\cooking showdown\\cookingshowdowncode\\manifest.json||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{4069CC9E-BE40-47E1-83A2-DDA5118327A3}|CookingShowdownCode.csproj|solutionrelative:manifest.json||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 446,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CompetitionOpenSpeechEventBuilder.cs",
+              "DocumentMoniker": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\Event\\EventBuilder\\CompetitionOpenSpeechEventBuilder.cs",
+              "RelativeDocumentMoniker": "Event\\EventBuilder\\CompetitionOpenSpeechEventBuilder.cs",
+              "ToolTip": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\Event\\EventBuilder\\CompetitionOpenSpeechEventBuilder.cs",
+              "RelativeToolTip": "Event\\EventBuilder\\CompetitionOpenSpeechEventBuilder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T13:57:36.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GameEventScript.cs",
+              "DocumentMoniker": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\Event\\GameEventScript.cs",
+              "RelativeDocumentMoniker": "Event\\GameEventScript.cs",
+              "ToolTip": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\Event\\GameEventScript.cs",
+              "RelativeToolTip": "Event\\GameEventScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T11:27:35.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EventManager.cs",
+              "DocumentMoniker": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\Event\\EventManager.cs",
+              "RelativeDocumentMoniker": "Event\\EventManager.cs",
+              "ToolTip": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\Event\\EventManager.cs",
+              "RelativeToolTip": "Event\\EventManager.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAawBQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T11:10:10.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CookingShowdownCode",
+              "DocumentMoniker": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\CookingShowdownCode.csproj",
+              "RelativeDocumentMoniker": "CookingShowdownCode.csproj",
+              "ToolTip": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\CookingShowdownCode.csproj",
+              "RelativeToolTip": "CookingShowdownCode.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-11-29T11:05:10.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CraftingPage.cs",
+              "DocumentMoniker": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\CraftingPage.cs",
+              "RelativeDocumentMoniker": "CraftingPage.cs",
+              "ToolTip": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\CraftingPage.cs",
+              "RelativeToolTip": "CraftingPage.cs",
+              "ViewState": "AgIAAHEBAAAAAAAAAAAswKcBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T11:50:13.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "manifest.json",
+              "DocumentMoniker": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\manifest.json",
+              "RelativeDocumentMoniker": "manifest.json",
+              "ToolTip": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\manifest.json",
+              "RelativeToolTip": "manifest.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-03T07:38:12.715Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Pathoschild.Stardew.ModBuildConfig.targets",
+              "DocumentMoniker": "C:\\Users\\\u5440\u54C8\u54C8\\.nuget\\packages\\pathoschild.stardew.modbuildconfig\\4.3.0\\build\\Pathoschild.Stardew.ModBuildConfig.targets",
+              "ToolTip": "C:\\Users\\\u5440\u54C8\u54C8\\.nuget\\packages\\pathoschild.stardew.modbuildconfig\\4.3.0\\build\\Pathoschild.Stardew.ModBuildConfig.targets",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-11-03T07:37:43.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ModEntry.cs",
+              "DocumentMoniker": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\ModEntry.cs",
+              "RelativeDocumentMoniker": "ModEntry.cs",
+              "ToolTip": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\ModEntry.cs",
+              "RelativeToolTip": "ModEntry.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAIwCkAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T07:31:46.956Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CookGameLocation.cs",
+              "DocumentMoniker": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\CookGameLocation.cs",
+              "RelativeDocumentMoniker": "CookGameLocation.cs",
+              "ToolTip": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\CookGameLocation.cs",
+              "RelativeToolTip": "CookGameLocation.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABIAAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T12:11:54.797Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+D:\SourceCode\sv\Cooking showdown\CookingShowdownCode\bin\Release\net6.0\CookingShowdownCode.deps.json
+D:\SourceCode\sv\Cooking showdown\CookingShowdownCode\bin\Release\net6.0\CookingShowdownCode.dll
+D:\SourceCode\sv\Cooking showdown\CookingShowdownCode\obj\Release\net6.0\CookingShowdownCode.csproj.AssemblyReference.cache
+D:\SourceCode\sv\Cooking showdown\CookingShowdownCode\obj\Release\net6.0\CookingShowdownCode.GeneratedMSBuildEditorConfig.editorconfig
+D:\SourceCode\sv\Cooking showdown\CookingShowdownCode\obj\Release\net6.0\CookingShowdownCode.AssemblyInfoInputs.cache
+D:\SourceCode\sv\Cooking showdown\CookingShowdownCode\obj\Release\net6.0\CookingShowdownCode.AssemblyInfo.cs
+D:\SourceCode\sv\Cooking showdown\CookingShowdownCode\obj\Release\net6.0\CookingShowdownCode.csproj.CoreCompileInputs.cache
+D:\SourceCode\sv\Cooking showdown\CookingShowdownCode\obj\Release\net6.0\CookingShowdownCode.dll

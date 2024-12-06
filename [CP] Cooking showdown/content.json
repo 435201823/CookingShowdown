@@ -1,0 +1,53 @@
+{
+    "Format": "2.3.0",
+    "CustomLocations": [
+        {
+            "LogName": "酒吧二层",
+            "Name": "Custom_SaloonSecondFloor",
+            "FromMapFile": "assets/Maps/SaloonSecondFloor.tmx"
+        }
+    ],
+    "Changes": [
+        {
+            "LogName": "刘易斯在社区中心开放后拜访",
+            "Action": "EditData",
+            "Target": "Data/Events/Farm",
+            "Entries": {
+                "aaa/H": "continue/64 15/farmer 64 16 2 Lewis 64 18 0/broadcastEvent/addConversationTopic testa/skippable/pause 1000/emote farmer 8/speak Lewis \"@,你好,我这两天经常想起社区中心的事情,我在想或许我应该先做些什么,让大家愿意出来参与活动。\"/emote farmer 32/speak Lewis \"所以我想先在小镇上举办一个活动把大家聚集起来。接下来每周的星期天都会在酒吧的二楼举办名为“料理对决”的活动,制作出美味料理的参赛选手将会获得优胜。\"/emote farmer 32/speak Lewis \"如果你星期天的12点到15点有空,可以来酒吧二楼看看。期待你的参加。\"/end"
+            },
+            "When": {
+                "HasSeenEvent |contains=611439": true
+            }
+        },
+        {
+            "LogName": "给酒吧一楼添加去二楼的传送点",
+            "Action": "EditMap",
+            "Target": "Maps/Saloon",
+            "FromFile": "assets/Maps/SaloonStairs.tmx",
+            "FromArea": {
+                "X": 0,
+                "Y": 0,
+                "Width": 3,
+                "Height": 2
+            },
+            "ToArea": {
+                "X": 21,
+                "Y": 23,
+                "Width": 3,
+                "Height": 2
+            },
+            "AddWarps": [
+                "22 25 Custom_SaloonSecondFloor 14 18"
+            ]
+        },
+        {
+            "LogName": "给酒吧二楼添加去一楼的传送点",
+            "Action": "EditMap",
+            "Target": "Maps/Custom_SaloonSecondFloor",
+            "AddWarps": [
+                "14 20 Saloon 22 23",
+                "15 20 Saloon 22 23"
+            ]
+        }
+    ]
+}

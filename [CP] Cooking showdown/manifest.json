@@ -1,0 +1,10 @@
+{
+    "Name": "CookingShowdown",
+    "Author": "smallfire",
+    "Version": "1.0.0",
+    "Description": "Cooking showdown,Hold a cooking competition once a week",
+    "UniqueID": "smallfire.CookingShowdown",
+    "ContentPackFor": {
+        "UniqueID": "Pathoschild.ContentPatcher"
+    }
+}

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="3" height="2" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="18">
+ <properties>
+  <property name="Warp" value="14 25 Town 45 71"/>
+ </properties>
+ <tileset firstgid="1" name="1" tilewidth="16" tileheight="16" tilecount="2176" columns="32">
+  <image source="townInterior.png" width="512" height="1088"/>
+  <tile id="581">
+   <animation>
+    <frame tileid="581" duration="500"/>
+    <frame tileid="550" duration="500"/>
+    <frame tileid="581" duration="500"/>
+    <frame tileid="582" duration="500"/>
+   </animation>
+  </tile>
+  <tile id="1378">
+   <animation>
+    <frame tileid="1378" duration="120"/>
+    <frame tileid="1381" duration="120"/>
+    <frame tileid="1384" duration="120"/>
+   </animation>
+  </tile>
+  <tile id="1379">
+   <animation>
+    <frame tileid="1379" duration="120"/>
+    <frame tileid="1382" duration="120"/>
+    <frame tileid="1385" duration="120"/>
+   </animation>
+  </tile>
+  <tile id="1380">
+   <animation>
+    <frame tileid="1380" duration="120"/>
+    <frame tileid="1383" duration="120"/>
+    <frame tileid="1386" duration="120"/>
+   </animation>
+  </tile>
+  <tile id="1410">
+   <animation>
+    <frame tileid="1410" duration="250"/>
+    <frame tileid="1474" duration="250"/>
+   </animation>
+  </tile>
+  <tile id="1411">
+   <animation>
+    <frame tileid="1411" duration="500"/>
+    <frame tileid="1475" duration="500"/>
+   </animation>
+  </tile>
+ </tileset>
+ <layer id="1" name="Back" width="3" height="2">
+  <data encoding="base64" compression="zlib">
+   eJxLYGJgiAfiBCBuAGIRFggNAB/OAkI=
+  </data>
+ </layer>
+ <objectgroup id="2" name="Back"/>
+ <layer id="3" name="Back2" width="3" height="2">
+  <properties>
+   <property name="Draw" value="Back"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJxjYMAOAAAYAAE=
+  </data>
+ </layer>
+ <objectgroup id="4" name="Back2"/>
+ <layer id="5" name="Buildings" width="3" height="2">
+  <data encoding="base64" compression="zlib">
+   eJxjYEAARiQaAAAoAAM=
+  </data>
+ </layer>
+ <objectgroup id="6" name="Buildings"/>
+ <layer id="7" name="Front" width="3" height="2">
+  <data encoding="base64" compression="zlib">
+   eJxbzAABS4DYEcp2BWIAHcABzg==
+  </data>
+ </layer>
+ <objectgroup id="8" name="Front"/>
+ <layer id="9" name="Front2" width="3" height="2">
+  <properties>
+   <property name="Draw" value="Front"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJxjYMAOAAAYAAE=
+  </data>
+ </layer>
+ <objectgroup id="10" name="Front2"/>
+ <layer id="11" name="Paths" width="3" height="2">
+  <data encoding="base64" compression="zlib">
+   eJxjYMAOAAAYAAE=
+  </data>
+ </layer>
+ <objectgroup id="12" name="Paths"/>
+</map>
