@@ -38,8 +38,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\czq\\.nuget\\packages\\": {},
-    "D:\\VS\\Tool\\NuGetPackages": {}
+    "C:\\Users\\呀哈哈\\.nuget\\packages\\": {},
+    "D:\\VS share\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
@@ -47,14 +47,14 @@
       "projectUniqueName": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\CookingShowdownCode.csproj",
       "projectName": "CookingShowdownCode",
       "projectPath": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\CookingShowdownCode.csproj",
-      "packagesPath": "C:\\Users\\czq\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\呀哈哈\\.nuget\\packages\\",
       "outputPath": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\VS\\Tool\\NuGetPackages"
+        "D:\\VS share\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\czq\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\呀哈哈\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -63,8 +63,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://pkgs.dev.azure.com/dotnet/CommunityToolkit/_packaging/CommunityToolkit-Labs/nuget/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
@@ -76,11 +76,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -108,7 +103,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

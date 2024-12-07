@@ -53,6 +53,8 @@ namespace CookingShowdownCode.Event
                 sb.Append(npc.x);
                 sb.Append(' ');
                 sb.Append(npc.y);
+                sb.Append(' ');
+                sb.Append(npc.face);
             }
 
             foreach (GameEventCommand command in commands)

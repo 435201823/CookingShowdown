@@ -10,10 +10,12 @@ namespace CookingShowdownCode
     {
         public override void Entry(IModHelper helper)
         {
-            this.Monitor.Log("模组启动啦");
+            Logger.Init(this.Monitor);
 
             //init i18n
             InnerTranslator.init(this.Helper.Translation);
+
+            //helper.GameContent.InvalidateCache
 
             helper.Events.Input.ButtonPressed += this.OnButtonPressed;
             helper.Events.Player.Warped += this.OnWarped;
@@ -31,14 +33,7 @@ namespace CookingShowdownCode
         {
             this.Monitor.Log("wrap：" + e.NewLocation.Name, LogLevel.Debug);
             /*this.Monitor.Log($"event: {e.NewLocation.currentEvent.id}", LogLevel.Debug);*/
-            if (Game1.dayOfMonth % 7 == 0)
-            {
-                this.Monitor.Log("今天星期天", LogLevel.Debug);
-            } else
-            {
-                this.Monitor.Log("今天是星期：" + Game1.dayOfMonth % 7, LogLevel.Debug);
-            }
-
+            
             EventManager.triggerEvent(e.NewLocation);
 
             /*if (e.NewLocation.Name != "Custom_SaloonSecondFloor")
@@ -56,7 +51,7 @@ namespace CookingShowdownCode
                 e.NewLocation.currentEvent.onEventFinished += aaaa;
             }*/
 
-            CookGameLocation.ActivateCompetitionKitchen();
+            //CookGameLocation.ActivateCompetitionKitchen();
 
         }
 

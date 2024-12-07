@@ -6,3 +6,4 @@ D:\SourceCode\sv\Cooking showdown\CookingShowdownCode\obj\Debug\net6.0\CookingSh
 D:\SourceCode\sv\Cooking showdown\CookingShowdownCode\obj\Debug\net6.0\CookingShowdownCode.AssemblyInfo.cs
 D:\SourceCode\sv\Cooking showdown\CookingShowdownCode\obj\Debug\net6.0\CookingShowdownCode.csproj.CoreCompileInputs.cache
 D:\SourceCode\sv\Cooking showdown\CookingShowdownCode\obj\Debug\net6.0\CookingShowdownCode.dll
+D:\SourceCode\sv\Cooking showdown\CookingShowdownCode\obj\Debug\net6.0\CookingShowdownCode.sourcelink.json

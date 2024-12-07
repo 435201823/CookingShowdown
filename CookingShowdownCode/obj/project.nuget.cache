@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "aYEgp0TX7yc=",
+  "dgSpecHash": "ciI4iHNRNPGo/IEHe6SYeQYGZBxj8JFHarAq9qKHZ2hNYv6rlC3bSB4KJztwJn5u0tbGdN9cnVxKxt93t2tRYw==",
   "success": true,
   "projectFilePath": "D:\\SourceCode\\sv\\Cooking showdown\\CookingShowdownCode\\CookingShowdownCode.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\czq\\.nuget\\packages\\pathoschild.stardew.modbuildconfig\\4.3.2\\pathoschild.stardew.modbuildconfig.4.3.2.nupkg.sha512"
+    "C:\\Users\\呀哈哈\\.nuget\\packages\\pathoschild.stardew.modbuildconfig\\4.3.2\\pathoschild.stardew.modbuildconfig.4.3.2.nupkg.sha512"
   ],
   "logs": []
 }

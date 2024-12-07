@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CookingShowdownCode")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cedc4ba4c680bf5ed0580a701308582ac9d47df3")]
 [assembly: System.Reflection.AssemblyProductAttribute("CookingShowdownCode")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CookingShowdownCode")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

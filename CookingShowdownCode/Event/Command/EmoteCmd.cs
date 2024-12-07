@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CookingShowdownCode.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,13 @@ namespace CookingShowdownCode.Event.Command
     public class EmoteCmd : GameEventCommand
     {
         public string npcId;
-        public string emoteId;
+        public int emoteId;
 
-        public EmoteCmd(string npcId, string emoteId)
+        public EmoteCmd(CharacterEnum character, EmoteEnum emoteId):this(character.GetName(), (int)emoteId)
+        {
+        }
+
+        public EmoteCmd(string npcId, int emoteId)
         {
             this.npcId = npcId;
             this.emoteId = emoteId;
