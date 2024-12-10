@@ -5,6 +5,9 @@
 // Assembly location: D:\Steam\steamapps\common\Stardew Valley\Stardew Valley.dll
 // XML documentation location: D:\Steam\steamapps\common\Stardew Valley\Stardew Valley.xml
 
+using CookingShowdownCode;
+using CookingShowdownCode.Event;
+using Force.DeepCloner;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -387,6 +390,9 @@ namespace StardewValley.Menus
             {
                 recipe.consumeIngredients(this._materialContainers);
                 this.heldItem = crafted;
+                Logger.Info("Crafting: " + crafted.Name);
+                CompetitionContext.Instance.setCookItem(crafted.DeepClone());
+
                 if (playSound)
                     Game1.playSound("coin");
             }
@@ -417,10 +423,11 @@ namespace StardewValley.Menus
             }
             else
                 Game1.stats.checkForCraftingAchievements();
-            if (!Game1.options.gamepadControls || this.heldItem == null || !Game1.player.couldInventoryAcceptThisItem(this.heldItem))
-                return;
-            Game1.player.addItemToInventoryBool(this.heldItem);
+            //if (!Game1.options.gamepadControls || this.heldItem == null || !Game1.player.couldInventoryAcceptThisItem(this.heldItem))
+            //    return;
+            //Game1.player.addItemToInventoryBool(this.heldItem);
             this.heldItem = (Item)null;
+            this.exitThisMenu();
         }
 
         public override void receiveRightClick(int x, int y, bool playSound = true)
