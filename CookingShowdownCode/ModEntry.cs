@@ -29,12 +29,12 @@ namespace CookingShowdownCode
             
         }
 
-        private void OnWarped(object? sender, WarpedEventArgs e)
+        private async void OnWarped(object? sender, WarpedEventArgs e)
         {
             this.Monitor.Log("wrap：" + e.NewLocation.Name, LogLevel.Debug);
             /*this.Monitor.Log($"event: {e.NewLocation.currentEvent.id}", LogLevel.Debug);*/
             
-            EventManager.triggerEvent(e.NewLocation);
+            await EventManager.triggerEvent(e.NewLocation);
 
             /*if (e.NewLocation.Name != "Custom_SaloonSecondFloor")
             {
