@@ -25,5 +25,15 @@ namespace CookingShowdownCode
             
             return translationHelper.Get(key);
         }
+
+        public static string getTranslate(string key, object? tokens)
+        {
+            if (translationHelper == null)
+            {
+                throw new Exception("I18N error,TranslationHelper is null");
+            }
+
+            return translationHelper.Get(key, tokens);
+        }
     }
 }

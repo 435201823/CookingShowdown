@@ -26,11 +26,29 @@ namespace CookingShowdownCode.Event
         {
         }
 
-        public Item? cookItem;
+        private Item? cookItem;
+
+        internal void CompetitionStart()
+        {
+            this.cookItem = null;
+        }
 
         public void setCookItem(Item item)
         {
             this.cookItem = item;
+        }
+
+        public Item? getCookItem()
+        {
+            return this.cookItem;
+        }
+
+        internal async Task WaitForCook()
+        {
+            while(this.cookItem == null)
+            {
+                await Task.Delay(100);
+            }
         }
     }
 }

@@ -5,6 +5,11 @@
             "LogName": "酒吧二层",
             "Name": "Custom_SaloonSecondFloor",
             "FromMapFile": "assets/Maps/SaloonSecondFloor.tmx"
+        },
+        {
+            "LogName": "比赛厨房",
+            "Name": "Custom_SaloonSecondFloor_Kitchen",
+            "FromMapFile": "assets/Maps/Kitchen.tmx"
         }
     ],
     "Changes": [
@@ -47,6 +52,14 @@
             "AddWarps": [
                 "14 20 Saloon 22 23",
                 "15 20 Saloon 22 23"
+            ]
+        },
+        {
+            "LogName": "给厨房添加一个厨房的传送点",
+            "Action": "EditMap",
+            "Target": "Maps/Custom_SaloonSecondFloor_Kitchen",
+            "AddWarps": [
+                "5 8 Custom_SaloonSecondFloor 14 18"
             ]
         }
     ]

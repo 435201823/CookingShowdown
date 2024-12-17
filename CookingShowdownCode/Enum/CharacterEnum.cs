@@ -9,7 +9,42 @@ namespace CookingShowdownCode.Enum
     public enum CharacterEnum
     {
         Farmer,
-        Lewis
+        Abigail,
+        Alex,
+        Caroline,
+        Clint,
+        Demetrius,
+        Elliott,
+        Emily,
+        Evelyn,
+        Fizz,
+        George,
+        Gus,
+        Haley,
+        Harvey,
+        Jas,
+        Jodi,
+        Kent,
+        Krobus,
+        Leah,
+        Lewis,
+        Linus,
+        Marcello,
+        Marlon,
+        Marnie,
+        Maru,
+        Morris,
+        MrQi,
+        Pam,
+        Penny,
+        Pierre,
+        Robin,
+        Sam,
+        Sandy,
+        Shane,
+        Vincent,
+        Willy,
+        Wizard
     }
 
     public static class CharacterEnumExtensions
@@ -20,10 +55,8 @@ namespace CookingShowdownCode.Enum
             {
                 case CharacterEnum.Farmer:
                     return "farmer";
-                case CharacterEnum.Lewis:
-                    return "Lewis";
                 default:
-                    return "";
+                    return character.ToString();
             }
         }
     }

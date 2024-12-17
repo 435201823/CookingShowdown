@@ -34,7 +34,7 @@ namespace CookingShowdownCode
             this.Monitor.Log("wrap：" + e.NewLocation.Name, LogLevel.Debug);
             /*this.Monitor.Log($"event: {e.NewLocation.currentEvent.id}", LogLevel.Debug);*/
             
-            await EventManager.triggerEvent(e.NewLocation);
+            await EventManager.triggerEvent(e.NewLocation,e.OldLocation);
 
             /*if (e.NewLocation.Name != "Custom_SaloonSecondFloor")
             {
