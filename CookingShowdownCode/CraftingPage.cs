@@ -7,6 +7,7 @@
 
 using CookingShowdownCode;
 using CookingShowdownCode.Event;
+using CookingShowdownCode.Helper;
 using Force.DeepCloner;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -388,10 +389,14 @@ namespace StardewValley.Menus
             }
             if (this.heldItem == null)
             {
+                var counter = new ConsumeCounter(Game1.player.Items);
                 recipe.consumeIngredients(this._materialContainers);
+                counter.Count(Game1.player.Items);
+                
                 this.heldItem = crafted;
-                Logger.Info("Crafting: " + crafted.Name);
+                Logger.Info("Crafting: " + crafted.Name + ",id" + crafted.ItemId);
                 CompetitionContext.Instance.setCookItem(crafted.DeepClone());
+                CompetitionContext.Instance.setIngredient(counter.getConsumeItems());
 
                 if (playSound)
                     Game1.playSound("coin");

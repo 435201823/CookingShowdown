@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StardewValley;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -58,6 +59,17 @@ namespace CookingShowdownCode.Enum
                 default:
                     return character.ToString();
             }
+        }
+
+        public static string GetDisplayName(this CharacterEnum character)
+        {
+            Game1.characterData.TryGetValue(character.GetName(), out var displayName);
+
+            if (displayName == null || displayName.DisplayName == null)
+            {
+                return "(can not find character display name)";
+            }
+            return displayName.DisplayName;
         }
     }
 }

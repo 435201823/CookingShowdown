@@ -29,6 +29,14 @@ namespace CookingShowdownCode.Event
             commands.Add(command);
         }
 
+        public void AddCommand(IList<GameEventCommand> newCommands)
+        {
+            foreach (GameEventCommand command in newCommands)
+            {
+                commands.Add(command);
+            }
+        }
+
         public string GenerateEventScript()
         {
             StringBuilder sb = new StringBuilder();

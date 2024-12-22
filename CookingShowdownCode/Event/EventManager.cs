@@ -1,5 +1,6 @@
 ﻿using CookingShowdownCode.Enum;
 using CookingShowdownCode.Event.EventBuilder;
+using CookingShowdownCode.Helper;
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewValley;
@@ -18,6 +19,11 @@ namespace CookingShowdownCode.Event
         {
             int dayOfWeek = getDayOfWeek();
             int timeOfDay = getTimeOfDay();
+
+            //if (Game1.player.eventsSeen.Contains("20241218001"))
+            //{
+            //    return;
+            //}
 
             if (dayOfWeek == 0 && timeOfDay >=1200 && timeOfDay <= 1500 && newLocation.Name.Equals("Custom_SaloonSecondFloor") && oldLocation.Name.Equals("Saloon"))// between 12:00 and 15:00 sunday 
             {
@@ -54,13 +60,8 @@ namespace CookingShowdownCode.Event
 
             await CompetitionContext.Instance.WaitForCook();
 
-            Item? cookItem = CompetitionContext.Instance.getCookItem();
-            if (cookItem == null)
-            {
-                return;
-            }
-
-            var finishEvent = new CompetitionFinishEventBuilder(cookItem).Build();
+            var finishEvent = new CompetitionFinishEventBuilder()
+                .Build();
             location.startEvent(finishEvent);
         }
     }

@@ -9,7 +9,7 @@ using StardewValley.Tools;
 
 namespace CookingShowdownCode.Event.EventBuilder
 {
-    public class CompetitionOpenSpeechEventBuilder
+    public class CompetitionOpenSpeechEventBuilder 
     {
         public StardewValley.Event Build()
         {
@@ -19,13 +19,16 @@ namespace CookingShowdownCode.Event.EventBuilder
             script.AddCommand(new BroadCastEventCmd());
             script.AddCommand(new SkippableCmd());
             script.AddCommand(new PauseCmd(1000));
-            script.AddCommand(new EmoteCmd(CharacterEnum.Farmer, EmoteEnum.QuestionMarkEmote));
-            script.AddCommand(new SpeakICmd(CharacterEnum.Lewis, "speach.first.lewis1"));
-            script.AddCommand(new SpeakICmd(CharacterEnum.Lewis, "speach.first.lewis2"));
-            script.AddCommand(new SpeakICmd(CharacterEnum.Lewis, "speach.first.lewis3"));
-            script.AddCommand(new SpeakICmd(CharacterEnum.Lewis, "speach.first.lewis4"));
-            script.AddCommand(new SpeakICmd(CharacterEnum.Lewis, "speach.first.lewis5"));
-            script.AddCommand(new SpeakICmd(CharacterEnum.Lewis, "speach.first.lewis6"));
+
+            //if (CompetitionContext.Instance.isFirstCompetition())
+            //{
+            //    script.AddCommand(firstSpeech());
+            //} else
+            //{
+            //    this.notImpl();
+            //}
+            script.AddCommand(firstSpeech());
+
             script.AddCommand(new EndCmd());
 
             var scriptStr = script.GenerateEventScript();
@@ -95,6 +98,27 @@ namespace CookingShowdownCode.Event.EventBuilder
             }
 
             return npcList;
+        }
+
+        private List<GameEventCommand> firstSpeech()
+        {
+            var script = new List<GameEventCommand>();
+            script.Add(new EmoteCmd(CharacterEnum.Farmer, EmoteEnum.QuestionMarkEmote));
+            script.Add(new SpeakICmd(CharacterEnum.Lewis, "speach.first.lewis1"));
+            script.Add(new SpeakICmd(CharacterEnum.Lewis, "speach.first.lewis2"));
+            script.Add(new SpeakICmd(CharacterEnum.Lewis, "speach.first.lewis3"));
+            script.Add(new SpeakICmd(CharacterEnum.Lewis, "speach.first.lewis4"));
+            script.Add(new SpeakICmd(CharacterEnum.Lewis, "speach.first.lewis5"));
+            script.Add(new SpeakICmd(CharacterEnum.Gus, "speach.first.gus1"));
+            script.Add(new SpeakICmd(CharacterEnum.Lewis, "speach.first.lewis6"));
+            return script;
+        }
+
+        public List<GameEventCommand> notImpl()
+        {
+            var script = new List<GameEventCommand>();
+            script.Add(new SpeakICmd(CharacterEnum.Lewis, "notimpl"));
+            return script;
         }
     }
 }
