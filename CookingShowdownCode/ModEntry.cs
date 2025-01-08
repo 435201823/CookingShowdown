@@ -1,7 +1,9 @@
 ﻿using CookingShowdownCode.Event;
+using CookingShowdownCode.Event.Command;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+using StardewValley.Delegates;
 using StardewValley.Menus;
 
 namespace CookingShowdownCode
@@ -55,9 +57,14 @@ namespace CookingShowdownCode
 
         }
 
-        private void aaaa()
+        private void initEventCommand()
         {
-            throw new NotImplementedException();
+            var method = typeof(ShowCompetitionKitchenCmd).GetMethod("ShowCompetitionKitchen");
+            if (method != null)
+            {
+                EventCommandDelegate eventCommandDelegate = (EventCommandDelegate)Delegate.CreateDelegate(typeof(EventCommandDelegate), method);
+                StardewValley.Event.RegisterCommand(method.Name, eventCommandDelegate);
+            }
         }
 
 
