@@ -15,7 +15,9 @@ namespace CookingShowdownCode.Event
 {
     public class EventManager
     {
-        public static async Task triggerEvent(GameLocation newLocation, GameLocation oldLocation)
+        public static bool debug = false;
+
+        public static async Task triggerEvent(GameLocation newLocation)
         {
             int dayOfWeek = getDayOfWeek();
             int timeOfDay = getTimeOfDay();
@@ -24,10 +26,13 @@ namespace CookingShowdownCode.Event
             //{
             //    return;
             //}
-
-            if (dayOfWeek == 0 && timeOfDay >=1200 && timeOfDay <= 1500 && newLocation.Name.Equals("Custom_SaloonSecondFloor") && oldLocation.Name.Equals("Saloon"))// between 12:00 and 15:00 sunday 
+            if (debug && newLocation.Name.Equals("Custom_SaloonSecondFloor"))
             {
-                await triggerCompetitionEvent(newLocation);
+                triggerCompetitionEvent(newLocation);
+            }
+            if (dayOfWeek == 0 && timeOfDay >=1200 && timeOfDay <= 1500 && newLocation.Name.Equals("Custom_SaloonSecondFloor"))// between 12:00 and 15:00 sunday 
+            {
+                triggerCompetitionEvent(newLocation);
             }
         }
 
@@ -43,26 +48,26 @@ namespace CookingShowdownCode.Event
             return Game1.timeOfDay;
         }
 
-        public static async Task triggerCompetitionEvent(GameLocation location)
+        public static void triggerCompetitionEvent(GameLocation location)
         {
             CompetitionContext.Instance.CompetitionStart();
 
-            var speechEvent = new CompetitionOpenSpeechEventBuilder().Build();
+            StardewValley.Event speechEvent = new CompetitionOpenSpeechEventBuilder().Build();
             location.startEvent(speechEvent);
 
-            while (Game1.eventUp || Game1.eventOver)
-            {
-                await Task.Delay(100);
-                //Logger.Info(Game1.CurrentEvent.eventCommands[Game1.CurrentEvent.currentCommand]);
-            }
+            //while (Game1.eventUp || Game1.eventOver)
+            //{
+            //    await Task.Delay(100);
+            //    //Logger.Info(Game1.CurrentEvent.eventCommands[Game1.CurrentEvent.currentCommand]);
+            //}
 
-            CookGameLocation.ActivateCompetitionKitchen();
+            //CookGameLocation.ActivateCompetitionKitchen();
 
-            await CompetitionContext.Instance.WaitForCook();
+            //await CompetitionContext.Instance.WaitForCook();
 
-            var finishEvent = new CompetitionFinishEventBuilder()
-                .Build();
-            location.startEvent(finishEvent);
+            //var finishEvent = new CompetitionFinishEventBuilder()
+            //    .Build();
+            //location.startEvent(finishEvent);
         }
     }
 }

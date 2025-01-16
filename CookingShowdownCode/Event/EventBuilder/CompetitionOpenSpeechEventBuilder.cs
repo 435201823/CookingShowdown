@@ -111,6 +111,13 @@ namespace CookingShowdownCode.Event.EventBuilder
             script.Add(new SpeakICmd(CharacterEnum.Lewis, "speach.first.lewis5"));
             script.Add(new SpeakICmd(CharacterEnum.Gus, "speach.first.gus1"));
             script.Add(new SpeakICmd(CharacterEnum.Lewis, "speach.first.lewis6"));
+            script.Add(new PauseCmd(500));
+            script.Add(new ShowCompetitionKitchenCmd());
+            script.Add(new GlobalFadeCmd());
+            script.Add(ViewportCmd.viewPortBlack());
+            script.Add(new GenerateEvaluationCmd());
+            
+
             return script;
         }
 
@@ -119,6 +126,11 @@ namespace CookingShowdownCode.Event.EventBuilder
             var script = new List<GameEventCommand>();
             script.Add(new SpeakICmd(CharacterEnum.Lewis, "notimpl"));
             return script;
+        }
+
+        public static void onEventFinish()
+        {
+            Game1.currentLocation.objects.Clear();
         }
     }
 }

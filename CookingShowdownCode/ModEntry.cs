@@ -1,10 +1,14 @@
 ﻿using CookingShowdownCode.Event;
 using CookingShowdownCode.Event.Command;
+using CookingShowdownCode.Event.EventBuilder;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
 using StardewValley.Delegates;
 using StardewValley.Menus;
+using StardewValley.Monsters;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace CookingShowdownCode
 {
@@ -12,6 +16,7 @@ namespace CookingShowdownCode
     {
         public override void Entry(IModHelper helper)
         {
+            initEventCommand();
             Logger.Init(this.Monitor);
 
             //init i18n
@@ -28,42 +33,27 @@ namespace CookingShowdownCode
         {
             var a = e.NewMenu?.GetType();
             this.Monitor.Log("menu:" + a?.ToString(), LogLevel.Debug);
-            
         }
 
         private async void OnWarped(object? sender, WarpedEventArgs e)
         {
-            this.Monitor.Log("wrap：" + e.NewLocation.Name, LogLevel.Debug);
-            /*this.Monitor.Log($"event: {e.NewLocation.currentEvent.id}", LogLevel.Debug);*/
-            
-            await EventManager.triggerEvent(e.NewLocation,e.OldLocation);
-
-            /*if (e.NewLocation.Name != "Custom_SaloonSecondFloor")
-            {
-                return;
-            }*/
-
-            /*var newEvent = new Event("continue/64 15/farmer 64 16 2 Lewis 64 18 0/broadcastEvent/addConversationTopic testa/skippable/pause 1000/emote farmer 8/speak Lewis \"你好呀！\"/emote farmer 32/speak Lewis \"你好？\"/emote farmer 32/speak Lewis \"你好~\"/end");
-            
-
-            e.NewLocation.startEvent(newEvent);*/
-
-            /*if (e.NewLocation.currentEvent.id == "aaa")
-            {
-                e.NewLocation.currentEvent.onEventFinished += aaaa;
-            }*/
-
-            //CookGameLocation.ActivateCompetitionKitchen();
-
+            await EventManager.triggerEvent(e.NewLocation);
         }
 
         private void initEventCommand()
         {
-            var method = typeof(ShowCompetitionKitchenCmd).GetMethod("ShowCompetitionKitchen");
-            if (method != null)
+            List<MethodInfo?> methodInfos = new()
             {
-                EventCommandDelegate eventCommandDelegate = (EventCommandDelegate)Delegate.CreateDelegate(typeof(EventCommandDelegate), method);
-                StardewValley.Event.RegisterCommand(method.Name, eventCommandDelegate);
+                typeof(ShowCompetitionKitchenCmd).GetMethod("ShowCompetitionKitchen"),
+                typeof(AddDishToMapCmd).GetMethod("AddDishToMap"),
+                typeof(GenerateEvaluationCmd).GetMethod("GenerateEvaluation")
+            };
+            foreach (var method in methodInfos) {
+                if (method != null)
+                {
+                    EventCommandDelegate eventCommandDelegate = (EventCommandDelegate)Delegate.CreateDelegate(typeof(EventCommandDelegate), method);
+                    StardewValley.Event.RegisterCommand(method.Name, eventCommandDelegate);
+                }
             }
         }
 
@@ -80,8 +70,22 @@ namespace CookingShowdownCode
             if (!Context.IsWorldReady)
                 return;
 
+            if (e.Button == SButton.F9)
+            {
+                EventManager.debug = true;
+                Game1.warpFarmer("Custom_SaloonSecondFloor", 14,15, 2);
+                
+                //获取location
+                //var @event = new StardewValley.Event("continue/64 15/farmer 64 16 2 Lewis 64 18 0/skippable/addDishToMap 63 16 194/pause 10000/end");
+                //@event.onEventFinished += CompetitionOpenSpeechEventBuilder.onEventFinish;
+                //Game1.currentLocation.startEvent(@event);
+                ////CookGameLocation.ActivateCompetitionKitchen();
+            }
+
             // print button presses to the console window
             this.Monitor.Log($"{Game1.player.Name} pressed {e.Button}.", LogLevel.Debug);
         }
+
+        
     }
 }

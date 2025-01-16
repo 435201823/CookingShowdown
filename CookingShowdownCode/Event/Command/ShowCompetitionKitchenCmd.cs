@@ -16,9 +16,21 @@ namespace CookingShowdownCode.Event.Command
 
         public static async void ShowCompetitionKitchen(StardewValley.Event @event, string[] args, EventContext context)
         {
-            CookGameLocation.ActivateCompetitionKitchen();
+            if (!CompetitionContext.Instance.blockMenu())
+            {
+                return;
+            }
 
-            await CompetitionContext.Instance.WaitForCook();
+            try
+            {
+                CookGameLocation.ActivateCompetitionKitchen();
+                await CompetitionContext.Instance.WaitForCook();
+                ++@event.currentCommand;
+            }
+            finally
+            {
+                CompetitionContext.Instance.unblockMenu();
+            }
         }
     }
 }

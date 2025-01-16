@@ -15,7 +15,7 @@ namespace CookingShowdownCode.Event.EventBuilder
 {
     internal class CompetitionFinishEventBuilder
     {
-        public StardewValley.Event Build()
+        public String Build()
         {
             var npcList = new List<NpcPosition>();
 
@@ -36,8 +36,27 @@ namespace CookingShowdownCode.Event.EventBuilder
 
             var scriptStr = script.GenerateEventScript();
 
-            Logger.Info(scriptStr);
-            return new StardewValley.Event(scriptStr);
+            return scriptStr;
+        }
+
+        public List<String> BuildEvaluateTmp()
+        {
+            List<GameEventCommand> evaluate = new();
+
+            evaluate.Add(new GlobalFadeToClearCmd(0.007, true));
+            evaluate.Add(ViewportCmd.viewPortReturn());
+            evaluate.Add(new PauseCmd(1000));
+            evaluate.Add(new SpeakICmd(CharacterEnum.Gus, "evaluate.ready"));
+            evaluate.AddRange(evaluateAll());
+
+            List<String> result = new();
+
+            foreach (var item in evaluate)
+            {
+                result.Add(item.getCommandString());
+            }
+
+            return result;
         }
 
         private List<GameEventCommand> evaluateAll()

@@ -10,6 +10,9 @@ namespace CookingShowdownCode.Event
         private static CompetitionContext? _instance = null;
 
         private static string eventPrefix = "202412191635";
+
+        private bool isBlockMenu = false;
+
         public static CompetitionContext Instance
         {
             get
@@ -52,7 +55,7 @@ namespace CookingShowdownCode.Event
 
         internal async Task WaitForCook()
         {
-            while(this.cookItem == null)
+            while(this.cookItem == null && Game1.activeClickableMenu != null)
             {
                 await Task.Delay(100);
             }
@@ -189,6 +192,22 @@ namespace CookingShowdownCode.Event
             }
 
             return summary;
+        }
+
+        public bool blockMenu()
+        {
+            if (isBlockMenu)
+            {
+                return false;
+            }
+
+            isBlockMenu = true;
+            return true;
+        }
+
+        public void unblockMenu()
+        {
+            isBlockMenu = false;
         }
     }
 }
