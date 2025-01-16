@@ -35,9 +35,9 @@ namespace CookingShowdownCode
             this.Monitor.Log("menu:" + a?.ToString(), LogLevel.Debug);
         }
 
-        private async void OnWarped(object? sender, WarpedEventArgs e)
+        private void OnWarped(object? sender, WarpedEventArgs e)
         {
-            await EventManager.triggerEvent(e.NewLocation);
+            EventManager.triggerEvent(e.NewLocation);
         }
 
         private void initEventCommand()

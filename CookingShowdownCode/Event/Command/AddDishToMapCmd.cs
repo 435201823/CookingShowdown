@@ -14,8 +14,24 @@ using xTile.Tiles;
 
 namespace CookingShowdownCode.Event.Command
 {
-    public class AddDishToMapCmd
+    public class AddDishToMapCmd : GameEventCommand
     {
+        private int x;
+        private int y;
+        private string dishId;
+
+        public AddDishToMapCmd(int x, int y, string dishId)
+        {
+            this.x = x;
+            this.y = y;
+            this.dishId = dishId;
+        }
+
+        public string getCommandString()
+        {
+            return $"addDishToMap {x} {y} {dishId}";
+        }
+
         public static void AddDishToMap(StardewValley.Event @event, string[] args, EventContext context)
         {
             Microsoft.Xna.Framework.Point point;
@@ -34,5 +50,7 @@ namespace CookingShowdownCode.Event.Command
             
             ++@event.currentCommand;
         }
+
+        
     }
 }

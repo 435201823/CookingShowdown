@@ -15,33 +15,14 @@ namespace CookingShowdownCode.Event.EventBuilder
 {
     internal class CompetitionFinishEventBuilder
     {
-        public String Build()
-        {
-            var npcList = new List<NpcPosition>();
-
-            npcList.Add(new NpcPosition(CharacterEnum.Farmer, 14, 15, DirectionEnum.Up));
-            npcList.Add(new NpcPosition(CharacterEnum.Gus, 14, 9, DirectionEnum.Down));
-
-            GameEventScript script = new GameEventScript("continue", 14, 11, npcList);
-            script.AddCommand(new BroadCastEventCmd());
-            script.AddCommand(new SkippableCmd());
-            script.AddCommand(new PauseCmd(1000));
-            script.AddCommand(new SpeakICmd(CharacterEnum.Gus, "evaluate.ready"));
-
-            //菜品评价
-            script.AddCommand(evaluateAll());
-
-            //script.AddCommand(new SpeakICmd(CharacterEnum.Lewis, "speach.finish.lewis1",new { CookItemName = cookItem.DisplayName, RecipesCookedTimes = recipesCookedTimes, Price = cookItem.salePrice(true) }));
-            script.AddCommand(new EndCmd());
-
-            var scriptStr = script.GenerateEventScript();
-
-            return scriptStr;
-        }
-
-        public List<String> BuildEvaluateTmp()
+        public List<GameEventCommand> Build()
         {
             List<GameEventCommand> evaluate = new();
+
+            //调换任务位置
+            evaluate.Add(new WarpCmd(CharacterEnum.Lewis, 11, 7));
+            evaluate.Add(new WarpCmd(CharacterEnum.Gus, 14, 9));
+            evaluate.Add(new FaceDirectionCmd(CharacterEnum.Gus,DirectionEnum.Down));
 
             evaluate.Add(new GlobalFadeToClearCmd(0.007, true));
             evaluate.Add(ViewportCmd.viewPortReturn());
@@ -49,14 +30,7 @@ namespace CookingShowdownCode.Event.EventBuilder
             evaluate.Add(new SpeakICmd(CharacterEnum.Gus, "evaluate.ready"));
             evaluate.AddRange(evaluateAll());
 
-            List<String> result = new();
-
-            foreach (var item in evaluate)
-            {
-                result.Add(item.getCommandString());
-            }
-
-            return result;
+            return evaluate;
         }
 
         private List<GameEventCommand> evaluateAll()

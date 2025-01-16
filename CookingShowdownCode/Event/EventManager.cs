@@ -17,7 +17,7 @@ namespace CookingShowdownCode.Event
     {
         public static bool debug = false;
 
-        public static async Task triggerEvent(GameLocation newLocation)
+        public static void triggerEvent(GameLocation newLocation)
         {
             int dayOfWeek = getDayOfWeek();
             int timeOfDay = getTimeOfDay();

@@ -19,25 +19,9 @@ namespace CookingShowdownCode.Event.Command
         public static void GenerateEvaluation(StardewValley.Event @event, string[] args, EventContext context)
         {
             var finishEvent = new CompetitionFinishEventBuilder()
-                .BuildEvaluateTmp();
+                .Build();
 
-            int index = @event.currentCommand + 1;
-            List<string> list = ((IEnumerable<string>)@event.eventCommands).ToList<string>();
-            if (index <= list.Count)
-            {
-                foreach (var command in finishEvent)
-                {
-                    list.Insert(index++, command);
-                }
-            }
-            else
-            {
-                foreach (var command in finishEvent)
-                {
-                    list.Add(command);
-                }
-            }
-            @event.eventCommands = list.ToArray();
+            GameEventHelper.eventInsertNextCommandList(@event, finishEvent);
 
             ++@event.currentCommand;
         }

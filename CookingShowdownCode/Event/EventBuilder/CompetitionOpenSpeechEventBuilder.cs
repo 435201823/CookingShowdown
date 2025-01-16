@@ -11,11 +11,14 @@ namespace CookingShowdownCode.Event.EventBuilder
 {
     public class CompetitionOpenSpeechEventBuilder 
     {
+        private const int viewportX = 14;
+        private const int viewportY = 11;
+
         public StardewValley.Event Build()
         {
             var npcList = randomNpcList();
 
-            GameEventScript script = new GameEventScript("continue", 14, 11, npcList);
+            GameEventScript script = new GameEventScript("continue", viewportX, viewportY, npcList);
             script.AddCommand(new BroadCastEventCmd());
             script.AddCommand(new SkippableCmd());
             script.AddCommand(new PauseCmd(1000));
@@ -114,10 +117,9 @@ namespace CookingShowdownCode.Event.EventBuilder
             script.Add(new PauseCmd(500));
             script.Add(new ShowCompetitionKitchenCmd());
             script.Add(new GlobalFadeCmd());
-            script.Add(ViewportCmd.viewPortBlack());
+            script.Add(ViewportCmd.viewPortBlack(viewportX, viewportY));
             script.Add(new GenerateEvaluationCmd());
             
-
             return script;
         }
 

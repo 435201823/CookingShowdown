@@ -20,10 +20,10 @@ namespace CookingShowdownCode.Event.Command
             this.y = y;
         }
 
-        public static ViewportCmd viewPortBlack()
+        public static ViewportCmd viewPortBlack(int x,int y)
         {
-            oldX = Game1.viewport.X;
-            oldY = Game1.viewport.Y;
+            oldX = x;
+            oldY = y;
             return new ViewportCmd(-1000, -1000);
         }
 
