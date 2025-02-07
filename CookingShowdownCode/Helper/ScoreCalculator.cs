@@ -10,17 +10,19 @@ namespace CookingShowdownCode.Helper
 {
     public class ScoreCalculator
     {
-        private String who;
+        private CharacterEnum who;
         private String whoDisplayName;
         private Item? cookItem;
         private List<ItemStack>? ingredients;
+        private int cookTimes;
 
-        public ScoreCalculator(String who, String whoDisplayName, Item? cookItem, List<ItemStack>? ingredients)
+        public ScoreCalculator(CharacterEnum who, String whoDisplayName, Item? cookItem, int cookTimes, List<ItemStack>? ingredients)
         {
             this.who = who;
             this.whoDisplayName = whoDisplayName;
             this.cookItem = cookItem;
             this.ingredients = ingredients;
+            this.cookTimes = cookTimes;
         }
 
         public RecipeSummary? GetSummary()
@@ -31,7 +33,7 @@ namespace CookingShowdownCode.Helper
             }
 
             int price = cookItem.salePrice(true);
-            int recipesCookedTimes = Game1.player.recipesCooked[cookItem.ItemId];
+            int recipesCookedTimes = cookTimes;
             if (recipesCookedTimes >= 100)
             {
                 recipesCookedTimes = 100;
@@ -54,7 +56,7 @@ namespace CookingShowdownCode.Helper
 
     public class RecipeSummary
     {
-        public String who;
+        public CharacterEnum who;
         public String whoDisplayName;
         public double totalScore;
         public double recipeSpecialScore;
@@ -65,7 +67,7 @@ namespace CookingShowdownCode.Helper
         public bool someIngredientsQualityGtOrEq2 = false;
         public int bestQuality = 0;
 
-        public RecipeSummary(String who,String whoDisplayName,double totalScore, double recipeSpecialScore, Item cookItem,int cookTime, List<ItemStack> ingredients)
+        public RecipeSummary(CharacterEnum who,String whoDisplayName,double totalScore, double recipeSpecialScore, Item cookItem,int cookTime, List<ItemStack> ingredients)
         {
             this.who = who;
             this.whoDisplayName = whoDisplayName;

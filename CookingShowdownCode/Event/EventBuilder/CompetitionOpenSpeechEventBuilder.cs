@@ -23,15 +23,15 @@ namespace CookingShowdownCode.Event.EventBuilder
             script.AddCommand(new SkippableCmd());
             script.AddCommand(new PauseCmd(1000));
 
-            //if (CompetitionContext.Instance.isFirstCompetition())
-            //{
-            //    script.AddCommand(firstSpeech());
-            //} else
-            //{
-            //    this.notImpl();
-            //}
-            script.AddCommand(firstSpeech());
-
+            if (CompetitionContext.Instance.isFirstCompetition())
+            {
+                script.AddCommand(firstSpeech());
+            }
+            else
+            {
+                script.AddCommand(normalSpeech());
+            }
+            script.AddCommand(startCookAndEvaluation());
             script.AddCommand(new EndCmd());
 
             var scriptStr = script.GenerateEventScript();
@@ -65,6 +65,7 @@ namespace CookingShowdownCode.Event.EventBuilder
             characterEnums.Add(CharacterEnum.Leah);
             characterEnums.Add(CharacterEnum.Linus);
             characterEnums.Add(CharacterEnum.Maru);
+            characterEnums.Add(CharacterEnum.Marnie);
             characterEnums.Add(CharacterEnum.Pam);
             characterEnums.Add(CharacterEnum.Penny);
             characterEnums.Add(CharacterEnum.Pierre);
@@ -72,6 +73,21 @@ namespace CookingShowdownCode.Event.EventBuilder
             characterEnums.Add(CharacterEnum.Sam);
             characterEnums.Add(CharacterEnum.Shane);
             characterEnums.Add(CharacterEnum.Vincent);
+            characterEnums.Add(CharacterEnum.Willy);
+
+            if (CompetitionContext.Instance.getLevel() == CompetitionLevelEnum.LV8)
+            {
+                characterEnums.Add(CharacterEnum.Sandy);
+            }
+            if (CompetitionContext.Instance.getLevel() == CompetitionLevelEnum.LV9)
+            {
+                characterEnums.Add(CharacterEnum.Krobus);
+                characterEnums.Add(CharacterEnum.Sandy);
+            }
+            if (CompetitionContext.Instance.getLevel() == CompetitionLevelEnum.LV11)
+            {
+                characterEnums.Add(CharacterEnum.Bouncer);
+            }
 
             HashSet<String> set = new HashSet<String>();
 
@@ -114,12 +130,30 @@ namespace CookingShowdownCode.Event.EventBuilder
             script.Add(new SpeakICmd(CharacterEnum.Lewis, "speach.first.lewis5"));
             script.Add(new SpeakICmd(CharacterEnum.Gus, "speach.first.gus1"));
             script.Add(new SpeakICmd(CharacterEnum.Lewis, "speach.first.lewis6"));
+
+            CompetitionContext.setSeenFirstCompetition();
+
+            return script;
+        }
+
+        private List<GameEventCommand> normalSpeech()
+        {
+            var script = new List<GameEventCommand>();
+            script.Add(new SpeakICmd(CharacterEnum.Lewis, "speach.normal.lewis1"));
+            script.Add(new SpeakICmd(CharacterEnum.Lewis, "speach.normal.please_cook"));
+
+            return script;
+        }
+
+        private List<GameEventCommand> startCookAndEvaluation()
+        {
+            var script = new List<GameEventCommand>();
             script.Add(new PauseCmd(500));
             script.Add(new ShowCompetitionKitchenCmd());
             script.Add(new GlobalFadeCmd());
             script.Add(ViewportCmd.viewPortBlack(viewportX, viewportY));
             script.Add(new GenerateEvaluationCmd());
-            
+
             return script;
         }
 

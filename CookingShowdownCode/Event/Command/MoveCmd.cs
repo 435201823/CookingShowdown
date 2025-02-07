@@ -1,4 +1,5 @@
 ﻿using CookingShowdownCode.Enum;
+using CookingShowdownCode.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,15 @@ namespace CookingShowdownCode.Event.Command
             this.y = y;
             this.facing = facing;
             this.@continue = @continue;
+        }
+
+        public MoveCmd(CharacterEnum character, ActorMove move)
+        {
+            this.CharacterEnum = character;
+            this.x = move.x;
+            this.y = move.y;
+            this.facing = move.face;
+            this.@continue = false;
         }
 
         public string getCommandString()

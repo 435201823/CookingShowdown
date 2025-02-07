@@ -50,10 +50,13 @@ namespace CookingShowdownCode.Event
 
         public static void triggerCompetitionEvent(GameLocation location)
         {
+            CompetitionContext.clearAndInit();
             CompetitionContext.Instance.CompetitionStart();
 
             StardewValley.Event speechEvent = new CompetitionOpenSpeechEventBuilder().Build();
+            speechEvent.onEventFinished += CompetitionOpenSpeechEventBuilder.onEventFinish;
             location.startEvent(speechEvent);
+
 
             //while (Game1.eventUp || Game1.eventOver)
             //{

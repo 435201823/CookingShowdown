@@ -12,6 +12,7 @@ namespace CookingShowdownCode.Enum
         Farmer,
         Abigail,
         Alex,
+        Bouncer,
         Caroline,
         Clint,
         Demetrius,
@@ -46,6 +47,7 @@ namespace CookingShowdownCode.Enum
         Vincent,
         Willy,
         Wizard
+        
     }
 
     public static class CharacterEnumExtensions
@@ -61,8 +63,24 @@ namespace CookingShowdownCode.Enum
             }
         }
 
+        public static CharacterEnum from(String name)
+        {
+            switch (name)
+            {
+                case "farmer":
+                    return CharacterEnum.Farmer;
+                default:
+                    return (CharacterEnum)System.Enum.Parse(typeof(CharacterEnum), name);
+            }
+        }
+
         public static string GetDisplayName(this CharacterEnum character)
         {
+            if (character == CharacterEnum.Farmer)
+            {
+                return Game1.player.displayName;
+            }
+
             Game1.characterData.TryGetValue(character.GetName(), out var displayName);
 
             if (displayName == null || displayName.DisplayName == null)

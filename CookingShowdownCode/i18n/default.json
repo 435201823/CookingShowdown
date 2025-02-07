@@ -5,8 +5,11 @@
   "speach.first.lewis3": "这是一场比拼厨艺的比赛，每个周末都将在这里举行，所有人都可以参加。",
   "speach.first.lewis4": "参赛人员需要自备食材参赛，当场做出美味的料理，最美味的料理将获得优胜，优胜者赛后将会有丰厚的奖励！",
   "speach.first.lewis5": "$h另外，格斯将担任比赛的评委，也感谢格斯为我们提供的比赛场地。",
-  "speach.first.gus1": "$h大家好！",
+  "speach.first.gus1": "$h非常荣幸能为比赛提供场地！",
   "speach.first.lewis6": "$h话不多说，比赛开始！请想要参加比赛的各位到厨房里开始制作料理吧！",
+  "speach.normal.lewis1": "又到了一周一度的料理对决比赛了，欢迎大家来参与活动。",
+  "speach.limit": "今天比赛的主题是...",
+  "speach.normal.please_cook": "那么请参赛选手到厨房中开始制作料理吧",
   "evaluate.ready": "时间到！让我们开始评选吧！",
   "evaluate.say_dish_name1": "让我们来看看这道菜，{{CookerDisplayName}}选手做了一道{{DishName}}。",
   "evaluate.say_dish_name2": "{{CookerDisplayName}}选手制作了一道{{DishName}}。",
@@ -69,6 +72,11 @@
   "evaluate.cook_many_time_but_lose1": "这是一道非常优秀的{{DishDisplayName}}，但在这次激烈的比赛中，如此简单的菜式真的还能脱颖而出吗？",
   "evaluate.cook_many_time_but_lose2": "你对{{DishDisplayName}}的制作堪称完美，但是{{DishDisplayName}}就只是{{DishDisplayName}}，在这次激烈的比赛中似乎没那么有竞争力。",
   "evaluate.cook_many_time_but_lose3": "尽管你对{{DishDisplayName}}的制作已经无可挑剔，但它的简单性在这场竞争激烈的比赛中，似乎无法与其他更具创意的菜品抗衡。",
+  "evaluate.who_win1": "经过激烈的角逐，是时候揭开本次比赛的优胜选手了，他就是...",
+  "evaluate.who_win2": "$h{{who}}!!!",
+  "evaluate.reward": "$h你将获得{{reward}}.",
+  "evaluate.finish1": "$h那么今天的比赛就到此结束了，感谢大家的参与！",
+  "evaluate.finish2": "$h我们下周再见。",
   "test": "这是{{whoDisplayName}}做的{{CookItemName}}"
 
 }
