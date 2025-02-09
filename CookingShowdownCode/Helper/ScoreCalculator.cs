@@ -1,4 +1,7 @@
 ﻿using CookingShowdownCode.Enum;
+using CookingShowdownCode.Event;
+using CookingShowdownCode.Event.Level;
+using CookingShowdownCode.Limit;
 using StardewValley;
 using System;
 using System.Collections.Generic;
@@ -32,6 +35,16 @@ namespace CookingShowdownCode.Helper
                 return null;
             }
 
+            if (who == CharacterEnum.Farmer)
+            {
+                var level = ICompetionLevel.getLevel(CompetitionContext.Instance.getLevel());
+                var limit = level.getLimit();
+                if (!limit.isValid(cookItem, ingredients, cookTimes))
+                {
+                    return RecipeSummary.NotReachLimit(who, whoDisplayName, cookItem);
+                }
+            }
+
             int price = cookItem.salePrice(true);
             int recipesCookedTimes = cookTimes;
             if (recipesCookedTimes >= 100)
@@ -50,6 +63,11 @@ namespace CookingShowdownCode.Helper
                 maxScore *= 1.4;
             }
 
+            if (EventManager.debug && who == CharacterEnum.Farmer)
+            {
+                total = 100000;
+            }
+
             return new RecipeSummary(who,whoDisplayName, total, (total - minScore) / (maxScore - minScore), cookItem, recipesCookedTimes, ingredients);
         }
     }
@@ -66,6 +84,14 @@ namespace CookingShowdownCode.Helper
         public double ingredientsAverageQuality;
         public bool someIngredientsQualityGtOrEq2 = false;
         public int bestQuality = 0;
+        public bool reachLimit = true;
+
+        public static RecipeSummary NotReachLimit(CharacterEnum who, String whoDisplayName, Item cookItem)
+        {
+            var summary = new RecipeSummary(who, whoDisplayName,0,0, cookItem,1,new());
+            summary.reachLimit = false;
+            return summary;
+        }
 
         public RecipeSummary(CharacterEnum who,String whoDisplayName,double totalScore, double recipeSpecialScore, Item cookItem,int cookTime, List<ItemStack> ingredients)
         {
@@ -101,6 +127,11 @@ namespace CookingShowdownCode.Helper
         public List<String> bestIngredients()
         {
             return ingredients.Where(x => x.quality.getInt() == bestQuality).Select(x => x.itemId).ToList();
+        }
+
+        public bool isNotReachLimit()
+        {
+            return !reachLimit;
         }
     }
 }

@@ -11,11 +11,11 @@ namespace CookingShowdownCode.Event
     {
         private static CompetitionContext? _instance = null;
 
-        
+        private CompetitionLevelEnum? levelCache;
 
         private bool isBlockMenu = false;
 
-        private List<RecipeSummary> threeCompetitionDishCache;
+        private List<RecipeSummary>? threeCompetitionDishCache;
 
         public static CompetitionContext Instance
         {
@@ -46,7 +46,6 @@ namespace CookingShowdownCode.Event
         {
             this.cookItem = null;
             var level = getLevel();
-            Logger.Info($"当前比赛等级：{level}");
         }
 
         public void setCookItem(Item item)
@@ -90,13 +89,7 @@ namespace CookingShowdownCode.Event
 
             ScoreCalculator calc = new(CharacterEnum.Farmer, Game1.player.displayName, cookItem, cookTimes, ingredients);
 
-            var result = calc.GetSummary();
-            if (EventManager.debug && result!= null)
-            {
-                result.totalScore = 100000;
-            }
-
-            return result;
+            return calc.GetSummary();
         }
         
         public bool isFirstCompetition()
@@ -111,18 +104,34 @@ namespace CookingShowdownCode.Event
 
         public CompetitionLevelEnum getLevel()
         {
+            if (levelCache != null)
+            {
+                return levelCache.Value;
+            }
+
             for (int i = 0; i < 16; i++)
             {
                 var level = CompetitionLevelEnumExtensions.from(i);
-                Logger.Info($"i:{i}");
-                Logger.Info($"是否是比赛等级：{level}");
                 if (!Game1.player.eventsSeen.Contains(level.ToEventIdString()))
                 {
+                    levelCache = level;
                     return level;
                 }
             }
 
+            levelCache = CompetitionLevelEnum.LV1;
             return CompetitionLevelEnum.LV1;
+        }
+
+        public CompetitionLevelEnum getNextLevel()
+        {
+            var level = getLevel();
+            if ((int)level < 15)
+            {
+                return CompetitionLevelEnumExtensions.from(((int)level+1));
+            }
+            return level;
+            
         }
 
         //只有NPC的菜
@@ -145,6 +154,8 @@ namespace CookingShowdownCode.Event
 
             var level = getLevel();
             List<RecipeSummary> dishSummaryList = getAllNpcCompetitionDish(level);
+
+            Logger.Info($"比赛dish summary :{dishSummaryList.Count}");
 
             //打日志
             foreach ( var dish in dishSummaryList)
@@ -178,6 +189,7 @@ namespace CookingShowdownCode.Event
         public static RecipeSummary npcCook(CharacterEnum who,String cookItemId, int cookTime, List<ItemStack> ingredients)
         {
             Item cookItem = ItemRegistry.Create(cookItemId);
+            
             ScoreCalculator calc = new ScoreCalculator(who, who.GetDisplayName(), cookItem, cookTime, ingredients);
 
             var summary = calc.GetSummary();

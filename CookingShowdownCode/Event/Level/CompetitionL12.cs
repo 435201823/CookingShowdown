@@ -1,6 +1,7 @@
 ﻿using CookingShowdownCode.Dish;
 using CookingShowdownCode.Enum;
 using CookingShowdownCode.Helper;
+using CookingShowdownCode.Limit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,11 @@ namespace CookingShowdownCode.Event.Level
         {
             //Marnie
             return CompetitionContext.npcCook(CharacterEnum.Marnie, new DishRhubarbPie(QualityEnum.Normal, QualityEnum.Normal, QualityEnum.Normal), 5);
+        }
+
+        ILimit ICompetionLevel.getLimit()
+        {
+            return new LimitIngredientsNum(3);
         }
     }
 }

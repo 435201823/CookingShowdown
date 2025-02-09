@@ -1,6 +1,7 @@
 ﻿
 using CookingShowdownCode.Enum;
 using CookingShowdownCode.Event.Command;
+using CookingShowdownCode.Event.Level;
 using Microsoft.Xna.Framework.Media;
 using StardewValley;
 using StardewValley.Buildings;
@@ -140,6 +141,10 @@ namespace CookingShowdownCode.Event.EventBuilder
         {
             var script = new List<GameEventCommand>();
             script.Add(new SpeakICmd(CharacterEnum.Lewis, "speach.normal.lewis1"));
+            var level = CompetitionContext.Instance.getLevel();
+            script.Add(new SpeakICmd(CharacterEnum.Lewis, "competition.this_week_limit"));
+            var limitDescription = ICompetionLevel.getLevel(level).getLimit().getLimitDescription();
+            script.Add(new SpeakICmd(CharacterEnum.Lewis, limitDescription.key,limitDescription.tokens));
             script.Add(new SpeakICmd(CharacterEnum.Lewis, "speach.normal.please_cook"));
 
             return script;

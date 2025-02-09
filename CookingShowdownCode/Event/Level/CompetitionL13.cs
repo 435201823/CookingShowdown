@@ -1,6 +1,7 @@
 ﻿using CookingShowdownCode.Dish;
 using CookingShowdownCode.Enum;
 using CookingShowdownCode.Helper;
+using CookingShowdownCode.Limit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,12 @@ namespace CookingShowdownCode.Event.Level
         {
             //Caroline
             return CompetitionContext.npcCook(CharacterEnum.Caroline, new DishCompleteBreakfast(QualityEnum.Silver, QualityEnum.Silver, QualityEnum.Silver, QualityEnum.Silver), 25);
-            
+
+        }
+
+        ILimit ICompetionLevel.getLimit()
+        {
+            return new LimitCoin(300);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using CookingShowdownCode.Dish;
 using CookingShowdownCode.Enum;
 using CookingShowdownCode.Helper;
+using CookingShowdownCode.Limit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,11 @@ namespace CookingShowdownCode.Event.Level
         public RecipeSummary? getThird()
         {
             return CompetitionContext.npcCook(CharacterEnum.Krobus, new DishStrangeBun(QualityEnum.Normal, QualityEnum.Normal, QualityEnum.Gold), 10);
+        }
+
+        ILimit ICompetionLevel.getLimit()
+        {
+            return new LimitIncludeEgg();
         }
     }
 }

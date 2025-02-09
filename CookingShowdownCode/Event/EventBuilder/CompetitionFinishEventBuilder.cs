@@ -1,5 +1,6 @@
 ﻿using CookingShowdownCode.Enum;
 using CookingShowdownCode.Event.Command;
+using CookingShowdownCode.Event.Level;
 using CookingShowdownCode.Helper;
 using Netcode;
 using StardewValley;
@@ -114,6 +115,11 @@ namespace CookingShowdownCode.Event.EventBuilder
 
             //结束
             result.Add(new SpeakICmd(CharacterEnum.Gus, "evaluate.finish1"));
+            result.Add(new SpeakICmd(CharacterEnum.Gus, "competition.next_week_limit"));
+            var nextLevel = CompetitionContext.Instance.getNextLevel();
+
+            var limitDescription = ICompetionLevel.getLevel(nextLevel).getLimit().getLimitDescription();
+            result.Add(new SpeakICmd(CharacterEnum.Gus, limitDescription.key, limitDescription.tokens)); ;
             result.Add(new SpeakICmd(CharacterEnum.Gus, "evaluate.finish2"));
 
             return result;
@@ -140,6 +146,14 @@ namespace CookingShowdownCode.Event.EventBuilder
 
             List<GameEventCommand> result = new();
             result.Add(sayDishName(recipeSummary.whoDisplayName,recipeSummary.cookItem.DisplayName));
+
+            if (recipeSummary.isNotReachLimit())
+            {
+                //不符合限制条件
+                result.Add(notReachLimit());
+                return result;
+            }
+
             result.Add(eat());
             result.Add(ingredientsAverageQuality(recipeSummary.ingredientsAverageQuality));
             if (recipeSummary.hasIngredientsQualityGtOrEq2())
@@ -175,6 +189,11 @@ namespace CookingShowdownCode.Event.EventBuilder
         private GameEventCommand eat()
         {
             return new SpeakICmd(CharacterEnum.Gus, "evaluate.eat");
+        }
+
+        private GameEventCommand notReachLimit()
+        {
+            return new SpeakICmd(CharacterEnum.Gus, $"evaluate.not_reach_limit");
         }
 
         private GameEventCommand ingredientsAverageQuality(double ingredientsAverageQuality)

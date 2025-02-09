@@ -1,6 +1,7 @@
 ﻿using CookingShowdownCode.Dish;
 using CookingShowdownCode.Enum;
 using CookingShowdownCode.Helper;
+using CookingShowdownCode.Limit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,11 @@ namespace CookingShowdownCode.Event.Level
         {
             //Bouncer
             return CompetitionContext.npcCook(CharacterEnum.Bouncer, new DishCrabCakes(QualityEnum.Normal, QualityEnum.Normal, QualityEnum.Normal, QualityEnum.Normal), 5);
+        }
+
+        ILimit ICompetionLevel.getLimit()
+        {
+            return new LimitCoin(200);
         }
     }
 }
