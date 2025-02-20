@@ -46,7 +46,7 @@ namespace CookingShowdownCode.Event
 
         public static void triggerCompetitionEvent(GameLocation location)
         {
-            if (!CompetitionContext.todayHasSeenEvent())
+            if (CompetitionContext.todayHasSeenEvent())
             {
                 return;
             }

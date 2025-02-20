@@ -10,8 +10,6 @@ namespace CookingShowdownCode.Event
     {
         private static CompetitionContext? _instance = null;
 
-        private static HasSeenEventHandler _hasSeenEventHandler = new();
-
         private CompetitionLevelEnum? levelCache;
 
         private bool isBlockMenu = false;
@@ -231,7 +229,20 @@ namespace CookingShowdownCode.Event
 
         internal static bool todayHasSeenEvent()
         {
-            return _hasSeenEventHandler.trySet(Game1.year,Game1.season,Game1.dayOfMonth);
+            int year = Game1.year;
+            int season = (int)Game1.season;
+            int day = Game1.dayOfMonth;
+
+            string eventid = "20250220666" + year + "0" + season  + "0" + day;
+
+            if (Game1.player.eventsSeen.Contains(eventid))
+            {
+                return true;
+            } else
+            {
+                Game1.player.eventsSeen.Add(eventid);
+                return false;
+            }
         }
     }
 }
