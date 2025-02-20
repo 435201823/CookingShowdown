@@ -1,0 +1,10 @@
+{
+    //不知道为什么使用i18n就只显示"}",暂时不做i18n支持
+    "Custom_SaloonSecondFloor": "你好！ #$q 100 followup#你有什么问题想问我吗? #$r 101 0 question_whoYouAre#你是谁？#$r 102 0 question_win#比赛中制胜的秘诀#$r 103 0 question_aboutMod#关于这个模组..#$r 104 0 question_modManager#超好用的模组管理器#$r 105 0 question_nothing#没事",
+    "question_whoYouAre": "我是程序员小火，这个模组的作者。",
+    "question_win": "选择价值更高的料理，料理的价值高低影响基础分。#$b#选用质量更高的材料，银星食材会将评分乘以1.2，金星料理会将评分乘以1.4。#$b#料理的制作次数也会影响评分，制作次数越高评分越高，最高可以乘以1.5。#$b#你可以在SMAPI控制台窗口查看NPC评分以及你的评分。",
+    "question_aboutMod": "料理对决模组主要是增加游戏中料理系统的可玩性。#$b#你可以在NexusMods网站上下载这个模组，或者在小火星露谷管理器中一键安装。#$b#这个模组是开源的，你可以访问github来查看这个模组的代码。",
+    "question_modManager": "我还开发过一个“小火星露谷管理器” #$b# 它不仅有常见的模组管理功能，还可以一键安装模组（包括前置和汉化）、一键更新模组、一键修复SMAPI红字。#$b#如果你感兴趣可以到smallfire.cn下载它。",
+    "question_nothing": "好的，有需要再找我哦！",
+    "followup": "$p 101|102 #如果你还有其他问题，随时可以问我！"
+}

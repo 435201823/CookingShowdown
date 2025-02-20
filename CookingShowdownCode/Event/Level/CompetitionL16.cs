@@ -2,6 +2,7 @@
 using CookingShowdownCode.Enum;
 using CookingShowdownCode.Helper;
 using CookingShowdownCode.Limit;
+using StardewValley;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,8 +28,10 @@ namespace CookingShowdownCode.Event.Level
 
         public RecipeSummary? getThird()
         {
-            //Gus
-            return CompetitionContext.npcCook(CharacterEnum.Gus, new DishTropicalCurry(QualityEnum.Gold, QualityEnum.Gold, QualityEnum.Gold), 65);
+            //Wizard
+            var summary = CompetitionContext.npcCook(CharacterEnum.Wizard, new DishMagicRockCandy(), 100);
+            summary.totalScore = 2000;
+            return summary;
         }
 
         ILimit ICompetionLevel.getLimit()

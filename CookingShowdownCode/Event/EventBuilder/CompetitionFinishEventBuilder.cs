@@ -58,11 +58,6 @@ namespace CookingShowdownCode.Event.EventBuilder
             evaluate.Add(new SpeakICmd(CharacterEnum.Gus, "evaluate.ready"));
             evaluate.AddRange(evaluateAll());
 
-            foreach(GameEventCommand command in evaluate)
-            {
-                Logger.Info(command.getCommandString());
-            }
-
             return evaluate;
         }
 
@@ -108,17 +103,30 @@ namespace CookingShowdownCode.Event.EventBuilder
             result.AddRange(moveToPoint(CharacterEnum.Gus, hostX, hostY, DirectionEnum.Down));
 
             //开始宣布冠军
+            bool isWin = false;
             if (maxIsWho != null)
             {
                 result.AddRange(whoWin(maxIsWho.Value));
+                if (maxIsWho.Value == CharacterEnum.Farmer)
+                {
+                    isWin = true;
+                }
             }
 
             //结束
             result.Add(new SpeakICmd(CharacterEnum.Gus, "evaluate.finish1"));
             result.Add(new SpeakICmd(CharacterEnum.Gus, "competition.next_week_limit"));
-            var nextLevel = CompetitionContext.Instance.getNextLevel();
 
-            var limitDescription = ICompetionLevel.getLevel(nextLevel).getLimit().getLimitDescription();
+            CompetitionLevelEnum nextWeekLevel;
+            if (isWin)
+            {
+                nextWeekLevel = CompetitionContext.Instance.getNextLevel();
+            } else
+            {
+                nextWeekLevel = CompetitionContext.Instance.getLevel();
+            }
+            
+            var limitDescription = ICompetionLevel.getLevel(nextWeekLevel).getLimit().getLimitDescription();
             result.Add(new SpeakICmd(CharacterEnum.Gus, limitDescription.key, limitDescription.tokens)); ;
             result.Add(new SpeakICmd(CharacterEnum.Gus, "evaluate.finish2"));
 

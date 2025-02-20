@@ -19,14 +19,10 @@ namespace CookingShowdownCode.Limit
         {
             if (cookItem != null && ingredients != null && ingredients.Count > 0)
             {
-                foreach (var ingredient in ingredients)
+                var buff = cookItem.GetFoodOrDrinkBuffs();
+                if (buff.Count() > 0)
                 {
-                    Item item = ItemRegistry.Create(ingredient.itemId);
-                    var buff = item.GetFoodOrDrinkBuffs();
-                    if (buff.Count() > 0)
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
             return false;

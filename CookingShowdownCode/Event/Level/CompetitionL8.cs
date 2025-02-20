@@ -2,6 +2,7 @@
 using CookingShowdownCode.Enum;
 using CookingShowdownCode.Helper;
 using CookingShowdownCode.Limit;
+using StardewValley;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace CookingShowdownCode.Event.Level
 {
     internal class CompetitionL8 : ICompetionLevel
     {
+
         //第八次比赛，比赛的主题是随意发挥
         public RecipeSummary getFirst()
         {

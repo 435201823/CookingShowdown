@@ -22,10 +22,6 @@ namespace CookingShowdownCode.Event
             int dayOfWeek = getDayOfWeek();
             int timeOfDay = getTimeOfDay();
 
-            //if (Game1.player.eventsSeen.Contains("20241218001"))
-            //{
-            //    return;
-            //}
             if (debug && newLocation.Name.Equals("Custom_SaloonSecondFloor"))
             {
                 triggerCompetitionEvent(newLocation);
@@ -50,27 +46,16 @@ namespace CookingShowdownCode.Event
 
         public static void triggerCompetitionEvent(GameLocation location)
         {
+            if (!CompetitionContext.todayHasSeenEvent())
+            {
+                return;
+            }
             CompetitionContext.clearAndInit();
             CompetitionContext.Instance.CompetitionStart();
 
             StardewValley.Event speechEvent = new CompetitionOpenSpeechEventBuilder().Build();
             speechEvent.onEventFinished += CompetitionOpenSpeechEventBuilder.onEventFinish;
             location.startEvent(speechEvent);
-
-
-            //while (Game1.eventUp || Game1.eventOver)
-            //{
-            //    await Task.Delay(100);
-            //    //Logger.Info(Game1.CurrentEvent.eventCommands[Game1.CurrentEvent.currentCommand]);
-            //}
-
-            //CookGameLocation.ActivateCompetitionKitchen();
-
-            //await CompetitionContext.Instance.WaitForCook();
-
-            //var finishEvent = new CompetitionFinishEventBuilder()
-            //    .Build();
-            //location.startEvent(finishEvent);
         }
     }
 }

@@ -2,6 +2,7 @@
 using CookingShowdownCode.Enum;
 using CookingShowdownCode.Helper;
 using CookingShowdownCode.Limit;
+using StardewValley;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace CookingShowdownCode.Event.Level
 {
     internal class CompetitionL10 : ICompetionLevel
     {
+
         //第十次比赛，比赛的主题是 食材包含糖的料理
         public RecipeSummary getFirst()
         {

@@ -29,7 +29,6 @@ namespace CookingShowdownCode.Helper
             {
                 if (item == null)
                     continue;
-                Logger.Info($"Add item:{item.ItemId},q:{item.Quality},Stack:{item.Stack}");
                 var pair = KeyValuePair.Create(item.ItemId, item.Quality);
 
                 if (map.ContainsKey(pair))

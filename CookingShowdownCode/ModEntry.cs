@@ -24,15 +24,8 @@ namespace CookingShowdownCode
 
             //helper.GameContent.InvalidateCache
 
-            helper.Events.Input.ButtonPressed += this.OnButtonPressed;
+            //helper.Events.Input.ButtonPressed += this.OnButtonPressed;
             helper.Events.Player.Warped += this.OnWarped;
-            helper.Events.Display.MenuChanged += this.OnMenuChanged;
-        }
-
-        private void OnMenuChanged(object? sender, MenuChangedEventArgs e)
-        {
-            var a = e.NewMenu?.GetType();
-            this.Monitor.Log("menu:" + a?.ToString(), LogLevel.Debug);
         }
 
         private void OnWarped(object? sender, WarpedEventArgs e)
@@ -69,10 +62,16 @@ namespace CookingShowdownCode
             // ignore if player hasn't loaded a save yet
             if (!Context.IsWorldReady)
                 return;
-
+            if (e.Button == SButton.F10)
+            {
+                learnAll();
+            }
             if (e.Button == SButton.F9)
             {
                 EventManager.debug = true;
+
+                
+
                 Game1.warpFarmer("Custom_SaloonSecondFloor", 14,15, 2);
                 
                 //获取location
@@ -83,8 +82,18 @@ namespace CookingShowdownCode
             }
 
             // print button presses to the console window
-            this.Monitor.Log($"{Game1.player.Name} pressed {e.Button}.", LogLevel.Debug);
+            //this.Monitor.Log($"{Game1.player.Name} pressed {e.Button}.", LogLevel.Debug);
         }
 
+        private void learnAll()
+        {
+            for (int i = 200;i < 922; i++)
+            {
+                string itemStr = i.ToString();
+                Item cookItem = ItemRegistry.Create(itemStr);
+
+                cookItem.LearnRecipe();
+            }
+        }
     }
 }

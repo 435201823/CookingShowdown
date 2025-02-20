@@ -2,6 +2,7 @@
 using CookingShowdownCode.Enum;
 using CookingShowdownCode.Helper;
 using CookingShowdownCode.Limit;
+using StardewValley;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace CookingShowdownCode.Event.Level
     //第二次比赛，比赛无限制，alex做出薄煎饼，小幅提升难度
     public class CompetitionL2 : ICompetionLevel
     {
+
         public RecipeSummary getFirst()
         {
             return CompetitionContext.npcCook(CharacterEnum.Jas, new DishFriedEgg(QualityEnum.Silver), 3);

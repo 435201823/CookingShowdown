@@ -2,6 +2,7 @@
 using CookingShowdownCode.Enum;
 using CookingShowdownCode.Helper;
 using CookingShowdownCode.Limit;
+using StardewValley;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace CookingShowdownCode.Event.Level
     //第四次比赛，比赛的主题是，食材包含鱼的料理
     internal class CompetitionL4 : ICompetionLevel
     {
+
         public RecipeSummary getFirst()
         {
             return CompetitionContext.npcCook(CharacterEnum.Alex, new DishSashimi("136", QualityEnum.Normal), 6);

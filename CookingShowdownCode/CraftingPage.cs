@@ -394,7 +394,6 @@ namespace StardewValley.Menus
                 counter.Count(Game1.player.Items);
                 
                 this.heldItem = crafted;
-                Logger.Info("Crafting: " + crafted.Name + ",id" + crafted.ItemId);
                 CompetitionContext.Instance.setCookItem(crafted.DeepClone());
                 CompetitionContext.Instance.setIngredient(counter.getConsumeItems());
 

@@ -2,6 +2,7 @@
 using CookingShowdownCode.Enum;
 using CookingShowdownCode.Helper;
 using CookingShowdownCode.Limit;
+using StardewValley;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace CookingShowdownCode.Event.Level
 {
     internal class CompetitionL15 : ICompetionLevel
     {
+
         //第十五次比赛，制作次数超过50次的料理
         public RecipeSummary getFirst()
         {

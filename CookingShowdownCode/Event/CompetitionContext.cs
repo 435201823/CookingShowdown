@@ -3,13 +3,14 @@ using CookingShowdownCode.Enum;
 using CookingShowdownCode.Event.Level;
 using CookingShowdownCode.Helper;
 using StardewValley;
-using System.Linq;
 
 namespace CookingShowdownCode.Event
 {
     public class CompetitionContext
     {
         private static CompetitionContext? _instance = null;
+
+        private static HasSeenEventHandler _hasSeenEventHandler = new();
 
         private CompetitionLevelEnum? levelCache;
 
@@ -119,8 +120,8 @@ namespace CookingShowdownCode.Event
                 }
             }
 
-            levelCache = CompetitionLevelEnum.LV1;
-            return CompetitionLevelEnum.LV1;
+            levelCache = CompetitionLevelEnum.LV16;
+            return CompetitionLevelEnum.LV16;
         }
 
         public CompetitionLevelEnum getNextLevel()
@@ -154,8 +155,6 @@ namespace CookingShowdownCode.Event
 
             var level = getLevel();
             List<RecipeSummary> dishSummaryList = getAllNpcCompetitionDish(level);
-
-            Logger.Info($"比赛dish summary :{dishSummaryList.Count}");
 
             //打日志
             foreach ( var dish in dishSummaryList)
@@ -224,7 +223,15 @@ namespace CookingShowdownCode.Event
             CompetitionLevelEnum level = getLevel();
             var eventId = level.ToEventIdString();
             Game1.player.eventsSeen.Add(eventId);
-            Logger.Info($"玩家赢得比赛，eventsSeen添加: {eventId}");
+
+            //发送邮件奖励
+            var levelNum = (int)level + 1;
+            Game1.player.mailbox.Add("WinLevel" + levelNum);
+        }
+
+        internal static bool todayHasSeenEvent()
+        {
+            return _hasSeenEventHandler.trySet(Game1.year,Game1.season,Game1.dayOfMonth);
         }
     }
 }

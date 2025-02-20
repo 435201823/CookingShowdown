@@ -5,11 +5,6 @@
             "LogName": "酒吧二层",
             "Name": "Custom_SaloonSecondFloor",
             "FromMapFile": "assets/Maps/SaloonSecondFloor.tmx"
-        },
-        {
-            "LogName": "比赛厨房",
-            "Name": "Custom_SaloonSecondFloor_Kitchen",
-            "FromMapFile": "assets/Maps/Kitchen.tmx"
         }
     ],
     "Changes": [
@@ -61,6 +56,75 @@
             "AddWarps": [
                 "5 8 Custom_SaloonSecondFloor 14 18"
             ]
+        },
+        {
+            "LogName": "小火的sprites",
+            "Action": "Load",
+            "Target": "Characters/SmallFire",
+            "FromFile": "assets/Characters/SmallFire.png"
+        },
+        {
+            "LogName": "小火的Portraits",
+            "Action": "Load",
+            "Target": "Portraits/SmallFire",
+            "FromFile": "assets/Portraits/SmallFire.png"
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/Characters",
+            "Entries": {
+                "SmallFire": {
+                    "DisplayName": "{{i18n:smallfire.displayname}}",
+                    "Gender": "Male",
+                    "Age": "Adult",
+                    "CanBeRomanced": false,
+                    "Home": [
+                        {
+                            "Id": "Default",
+                            "Location": "Custom_SaloonSecondFloor",
+                            "Tile": {
+                                "X": 7,
+                                "Y": 7
+                            },
+                            "Direction": "Down"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "Action": "Load",
+            "Target": "Characters/Dialogue/SmallFire",
+            "FromFile": "assets/Dialogue/SmallFire.json"
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/NPCGiftTastes",
+            "Entries": {
+                "SmallFire": "You're giving this to me? This is amazing!/207 232 233 400/Thank you! This is a very interesting specimen./-5 -79 422/...What is this?/80 330/This is disgusting./2/That was very thoughtful of you./-4/ "
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/Mail",
+            "Entries": {
+                "WinLevel1": "{{i18n:WinLevel1}}",
+                "WinLevel2": "{{i18n:WinLevel2}}",
+                "WinLevel3": "{{i18n:WinLevel3}}",
+                "WinLevel4": "{{i18n:WinLevel4}}",
+                "WinLevel5": "{{i18n:WinLevel5}}",
+                "WinLevel6": "{{i18n:WinLevel6}}",
+                "WinLevel7": "{{i18n:WinLevel7}}",
+                "WinLevel8": "{{i18n:WinLevel8}}",
+                "WinLevel9": "{{i18n:WinLevel9}}",
+                "WinLevel10": "{{i18n:WinLevel10}}",
+                "WinLevel11": "{{i18n:WinLevel11}}",
+                "WinLevel12": "{{i18n:WinLevel12}}",
+                "WinLevel13": "{{i18n:WinLevel13}}",
+                "WinLevel14": "{{i18n:WinLevel14}}",
+                "WinLevel15": "{{i18n:WinLevel15}}",
+                "WinLevel16": "{{i18n:WinLevel16}}"
+            }
         }
     ]
 }

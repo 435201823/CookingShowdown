@@ -36,8 +36,6 @@ namespace CookingShowdownCode.Event.EventBuilder
             script.AddCommand(new EndCmd());
 
             var scriptStr = script.GenerateEventScript();
-
-            Logger.Info(scriptStr);
             return new StardewValley.Event(scriptStr);
         }
 
@@ -89,6 +87,11 @@ namespace CookingShowdownCode.Event.EventBuilder
             {
                 characterEnums.Add(CharacterEnum.Bouncer);
             }
+            if (CompetitionContext.Instance.getLevel() == CompetitionLevelEnum.LV16)
+            {
+                characterEnums.Add(CharacterEnum.Wizard);
+            }
+
 
             HashSet<String> set = new HashSet<String>();
 
